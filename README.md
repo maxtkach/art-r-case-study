@@ -22,25 +22,25 @@ ART-R is a long-standing distributor of professional concert, stage, and archite
 
 ```mermaid
 graph TD
-    Client([Client Browser]) -->|HTTPS / Next.js SSR| AppRouter[Next.js App Router]
+    Client(["Client Browser"]) -->|HTTPS / Next.js SSR| AppRouter["Next.js App Router"]
     
-    subgraph Frontend / Edge
-        AppRouter --> UI[Tailwind + Radix UI]
-        AppRouter --> LocalStore[i18n: next-intl / 3 Locales]
-        AppRouter --> AdminPanel[Admin CMS & Page Builder]
+    subgraph FrontendGroup ["Frontend & Edge"]
+        AppRouter --> UI["Tailwind CSS + Radix UI"]
+        AppRouter --> LocalStore["i18n: next-intl / 3 Locales"]
+        AppRouter --> AdminPanel["Admin CMS & Page Builder"]
     end
 
-    subgraph API & Backend / 75+ Endpoints
-        AppRouter --> AuthAPI[JWT + Bcrypt Auth & RBAC]
-        AppRouter --> CatalogAPI[Prisma Query Engine]
-        AppRouter --> AIConsultantAPI[AI Consultant Engine / SSE Stream]
+    subgraph APIGroup ["API & Backend / 75+ Endpoints"]
+        AppRouter --> AuthAPI["JWT + Bcrypt Auth & RBAC"]
+        AppRouter --> CatalogAPI["Prisma Query Engine"]
+        AppRouter --> AIConsultantAPI["AI Consultant Engine / SSE Stream"]
     end
 
-    subgraph External & Storage Services
-        CatalogAPI --> MongoDB[(MongoDB Atlas)]
-        AIConsultantAPI --> Gemini[Google Gemini API]
-        AdminPanel --> Cloudinary[Cloudinary Media CDN]
-        CatalogAPI --> DeepL[DeepL Automated i18n]
+    subgraph ExternalGroup ["External & Storage Services"]
+        CatalogAPI --> MongoDB[("MongoDB Atlas")]
+        AIConsultantAPI --> Gemini["Google Gemini API"]
+        AdminPanel --> Cloudinary["Cloudinary Media CDN"]
+        CatalogAPI --> DeepL["DeepL Automated i18n"]
     end
 ```
 
